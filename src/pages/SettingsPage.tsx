@@ -158,12 +158,12 @@ const SettingsPage: React.FC = () => {
         <h1 className="text-2xl font-extrabold tracking-tight text-foreground">Ustawienia</h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
         {/* ── Left Column ────────────────────────────── */}
-        <div className="space-y-4">
+        <div className="flex flex-col h-full space-y-0">
 
           {/* Profile row */}
-          <div className="flex items-center gap-3 px-1 mb-1">
+          <div className="flex items-center gap-3 px-1 mb-4">
             <Avatar className="h-9 w-9 border border-border shadow-sm">
               <AvatarImage src={user?.photoURL || undefined} />
               <AvatarFallback className="bg-primary/10 text-primary text-xs">
@@ -177,8 +177,8 @@ const SettingsPage: React.FC = () => {
           </div>
 
           {/* Settings card */}
-          <Card className="border-border bg-card shadow-sm rounded-2xl overflow-hidden">
-            <CardContent className="p-0">
+          <Card className="border-border bg-card shadow-sm rounded-2xl overflow-hidden flex-1 flex flex-col justify-between">
+            <CardContent className="p-0 flex-1">
 
               {/* Theme mode */}
               <SettingsRow
@@ -319,10 +319,13 @@ const SettingsPage: React.FC = () => {
         </div>
 
         {/* ── Right Column: Goals ─────────────────────── */}
-        <div className="space-y-4">
+        <div className="flex flex-col h-full space-y-0">
+          {/* Spacer to align Goals Card with Settings Card on desktop (matches profile height + margin-bottom) */}
+          <div className="hidden md:block h-[38px] mb-4" />
+
           {/* Combined Goals Card */}
-          <Card className="border-border bg-card shadow-md rounded-2xl overflow-hidden">
-            <CardContent className="p-4 sm:p-5 space-y-4">
+          <Card className="border-border bg-card shadow-md rounded-2xl overflow-hidden flex-1 flex flex-col justify-between">
+            <CardContent className="p-4 sm:p-5 space-y-4 flex-1 flex flex-col justify-between">
               <div className="flex items-center gap-2 mb-2 pb-2.5 border-b border-border/10">
                 <div className="h-7 w-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                   <Target size={14} />

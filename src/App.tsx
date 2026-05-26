@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
 import { useAppStore } from "./store/appStore";
 import AppLayout from "./components/Layout/AppLayout";
-import LoginPage from "./pages/LoginPage";
-import CalendarPage from "./pages/CalendarPage";
-import StatsPage from "./pages/StatsPage";
-import SettingsPage from "./pages/SettingsPage";
+
+// Lazy-loaded pages for high-performance bundle sizes
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const CalendarPage = lazy(() => import("./pages/CalendarPage"));
+const StatsPage = lazy(() => import("./pages/StatsPage"));
+const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
 // Loading skeleton component
 const LoadingSkeleton: React.FC = () => (
@@ -60,21 +62,23 @@ const App: React.FC = () => {
     <div>
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            element={
-              <ProtectedRoute>
-                <AppLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="/" element={<CalendarPage />} />
-            <Route path="/stats" element={<StatsPage />} />
-            <Route path="/settings" element={<SettingsPage />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Suspense fallback={<LoadingSkeleton />}>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="/" element={<CalendarPage />} />
+              <Route path="/stats" element={<StatsPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Route>
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );

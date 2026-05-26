@@ -11,6 +11,23 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('recharts')) {
+              return 'recharts-lib';
+            }
+            if (id.includes('firebase')) {
+              return 'firebase-sdk';
+            }
+            return 'vendor';
+          }
+        }
+      }
+    }
+  },
   plugins: [
     react(),
     tailwindcss(),
