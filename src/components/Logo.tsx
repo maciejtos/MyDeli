@@ -17,24 +17,24 @@ export const Logo: React.FC<LogoProps> = ({ className, size = 32 }) => {
       <defs>
         <mask id="logoMaskReact">
           <rect width="512" height="512" fill="white" />
-          <line x1="166" y1="212" x2="346" y2="212" stroke="black" stroke-width="10" stroke-linecap="round" />
-          <rect x="200" y="285" width="24" height="50" rx="6" fill="black" />
-          <rect x="244" y="250" width="24" height="85" rx="6" fill="black" />
-          <rect x="288" y="215" width="24" height="120" rx="6" fill="black" />
+          <line x1="116" y1="182" x2="396" y2="182" stroke="black" stroke-width="14" stroke-linecap="round" />
+          <rect x="170" y="300" width="36" height="80" rx="10" fill="black" />
+          <rect x="238" y="250" width="36" height="130" rx="10" fill="black" />
+          <rect x="306" y="200" width="36" height="180" rx="10" fill="black" />
         </mask>
       </defs>
 
       <g mask="url(#logoMaskReact)">
         <path
-          d="M 216 185 C 216 135, 296 135, 296 185"
+          d="M 186 142 C 186 72, 326 72, 326 142"
           fill="none"
           stroke="currentColor"
-          strokeWidth="20"
+          strokeWidth="26"
           strokeLinecap="round"
         />
-        <rect x="166" y="185" width="180" height="180" rx="30" fill="currentColor" />
-        <rect x="146" y="225" width="20" height="100" rx="6" fill="currentColor" />
-        <rect x="346" y="225" width="20" height="100" rx="6" fill="currentColor" />
+        <rect x="116" y="142" width="280" height="280" rx="48" fill="currentColor" />
+        <rect x="86" y="202" width="30" height="160" rx="10" fill="currentColor" />
+        <rect x="396" y="202" width="30" height="160" rx="10" fill="currentColor" />
       </g>
     </svg>
   );
