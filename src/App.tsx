@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
 import { useAppStore } from "./store/appStore";
 import AppLayout from "./components/Layout/AppLayout";
@@ -29,10 +29,21 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   return <>{children}</>;
 };
 
+// Scroll to top helper on route navigation
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+  }, [pathname]);
+
+  return null;
+};
+
 const App: React.FC = () => {
   const { theme, themePreset } = useAppStore();
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Clean up older classes
     document.documentElement.classList.remove("theme-lavender", "theme-emerald", "theme-sunset");
     // Add new theme class
@@ -48,6 +59,7 @@ const App: React.FC = () => {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route

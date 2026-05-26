@@ -314,17 +314,7 @@ const SettingsPage: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Logout */}
-          <button
-            type="button"
-            onClick={logout}
-            className="flex items-center gap-3 w-full px-4 py-2.5 rounded-xl border border-red-500/15 bg-red-500/5 hover:bg-red-500/10 active:bg-red-500/15 text-red-500 dark:text-red-400 transition-colors duration-150 cursor-pointer focus:outline-none"
-          >
-            <div className="h-7 w-7 rounded-lg bg-red-500/10 flex items-center justify-center">
-              <LogOut size={14} />
-            </div>
-            <span className="text-sm font-semibold">Wyloguj się</span>
-          </button>
+
 
         </div>
 
@@ -400,6 +390,18 @@ const SettingsPage: React.FC = () => {
             </CardContent>
           </Card>
         </div>
+      </div>
+
+      {/* Logout button centered at the very bottom */}
+      <div className="mt-8 pt-4 flex justify-center pb-4">
+        <button
+          type="button"
+          onClick={logout}
+          className="flex items-center justify-center gap-2.5 w-full max-w-xs px-4 py-3 rounded-xl border border-red-500/15 bg-red-500/5 hover:bg-red-500/10 active:bg-red-500/15 text-red-500 dark:text-red-400 transition-all duration-150 cursor-pointer focus:outline-none font-bold shadow-sm"
+        >
+          <LogOut size={15} />
+          <span>Wyloguj się</span>
+        </button>
       </div>
     </div>
   );

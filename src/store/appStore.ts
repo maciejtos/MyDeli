@@ -11,8 +11,10 @@ interface AppState {
   monthlyEarningsGoal: number;
   monthlyKmGoal: number;
   displayName: string;
+  isAddRideOpen: boolean;
 
   setCurrentMonth: (year: number, month: number) => void;
+  setAddRideOpen: (open: boolean) => void;
   setSelectedDate: (date: string | null) => void;
   setTheme: (theme: "dark" | "light") => void;
   setThemePreset: (preset: "lavender" | "emerald" | "sunset") => void;
@@ -38,8 +40,10 @@ export const useAppStore = create<AppState>()(
       monthlyEarningsGoal: 5000,
       monthlyKmGoal: 1000,
       displayName: "",
+      isAddRideOpen: false,
 
       setCurrentMonth: (year, month) => set({ currentYear: year, currentMonth: month }),
+      setAddRideOpen: (isAddRideOpen) => set({ isAddRideOpen }),
       setSelectedDate: (date) => set({ selectedDate: date }),
       setTheme: (theme) => set({ theme }),
       setThemePreset: (themePreset) => set({ themePreset }),

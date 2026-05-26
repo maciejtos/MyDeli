@@ -1,9 +1,13 @@
 import React from "react";
 import { Outlet, NavLink, useLocation } from "react-router-dom";
 import BottomNav from "./BottomNav";
-import { CalendarDays, BarChart2, Settings, Bike } from "lucide-react";
+import { CalendarDays, BarChart2, Settings, Bike, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useAppStore } from "../../store/appStore";
+import { useRides } from "../../hooks/useRides";
+import RideForm from "../Forms/RideForm";
+import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { to: "/", icon: CalendarDays, label: "Dziennik" },
@@ -13,6 +17,8 @@ const NAV_ITEMS = [
 
 const AppLayout: React.FC = () => {
   const location = useLocation();
+  const { isAddRideOpen, setAddRideOpen } = useAppStore();
+  const { addRide } = useRides();
   
   return (
     <div className="min-h-[100dvh] flex flex-col md:flex-row bg-background text-foreground antialiased selection:bg-primary/30 relative">
@@ -57,6 +63,15 @@ const AppLayout: React.FC = () => {
               </NavLink>
             );
           })}
+
+          {/* Add Ride Button for Desktop Sidebar */}
+          <Button
+            onClick={() => setAddRideOpen(true)}
+            className="w-full mt-6 rounded-xl h-11 font-semibold bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+          >
+            <Plus className="mr-2" size={16} />
+            Dodaj jazdę
+          </Button>
         </nav>
         
         <div className="pt-6 border-t border-border/40 pl-2">
@@ -66,7 +81,7 @@ const AppLayout: React.FC = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-h-screen">
-        <main className="flex-1 w-full max-w-2xl md:max-w-5xl mx-auto px-4 md:px-8 pb-28 md:pb-12 pt-6">
+        <main className="flex-1 w-full max-w-2xl md:max-w-5xl mx-auto px-2 sm:px-4 md:px-8 pb-24 md:pb-12 pt-6">
           <Outlet />
         </main>
         
@@ -75,6 +90,15 @@ const AppLayout: React.FC = () => {
           <BottomNav />
         </div>
       </div>
+
+      {/* Global Ride Form Modal */}
+      <RideForm
+        isOpen={isAddRideOpen}
+        onSave={async (data) => {
+          await addRide(data);
+        }}
+        onClose={() => setAddRideOpen(false)}
+      />
     </div>
   );
 };

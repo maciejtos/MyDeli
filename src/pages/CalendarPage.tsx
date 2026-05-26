@@ -48,10 +48,7 @@ const CalendarPage: React.FC = () => {
     setShowDayModal(true);
   }, []);
 
-  const handleAddNew = useCallback(() => {
-    setEditingRide(null);
-    setShowForm(true);
-  }, []);
+
 
   const handleSave = useCallback(
     async (data: Omit<Ride, "id" | "createdAt" | "updatedAt">) => {
@@ -84,16 +81,7 @@ const CalendarPage: React.FC = () => {
 
       <CalendarGrid rides={monthRides} onDayClick={handleDayClick} />
 
-      {/* Floating Action Button (FAB) for premium mobile look */}
-      <div className="fixed bottom-24 right-6 z-40">
-        <Button
-          onClick={handleAddNew}
-          size="icon"
-          className="h-14 w-14 rounded-full shadow-2xl shadow-primary/45 bg-primary hover:bg-primary/95 text-primary-foreground hover:scale-110 active:scale-95 transition-all duration-300 pointer-events-auto border border-primary/20"
-        >
-          <Plus size={28} />
-        </Button>
-      </div>
+
 
       <RideForm
         isOpen={showForm}

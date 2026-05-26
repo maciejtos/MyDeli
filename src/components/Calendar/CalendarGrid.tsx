@@ -45,9 +45,9 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({ rides, onDayClick }) => {
   }, [currentYear, currentMonth, rides]);
 
   return (
-    <Card className="border-border shadow-xl overflow-hidden bg-card backdrop-blur-md rounded-3xl h-[calc(100vh-12.5rem)] md:h-[calc(100vh-9rem)] min-h-[480px]">
-      <CardContent className="p-2.5 sm:p-4 h-full flex flex-col">
-        <div className="grid grid-cols-7 gap-1.5 mb-2 shrink-0">
+    <Card className="border-border shadow-md sm:shadow-xl overflow-hidden bg-card backdrop-blur-md rounded-2xl sm:rounded-3xl h-[calc(100dvh-11.5rem)] md:h-[calc(100dvh-8.5rem)] min-h-[460px] w-full">
+      <CardContent className="p-1 sm:p-4 h-full flex flex-col">
+        <div className="grid grid-cols-7 gap-1 sm:gap-1.5 mb-2 shrink-0">
           {DAY_HEADERS.map((d) => (
             <div
               key={d.label}
@@ -64,7 +64,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({ rides, onDayClick }) => {
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-7 gap-1.5 sm:gap-2 auto-rows-fr flex-1 pb-0.5">
+        <div className="grid grid-cols-7 gap-1 sm:gap-2 auto-rows-fr flex-1 pb-0.5">
           {calendarDays.map((item, idx) => {
             if (!item) {
               return <div key={`empty-${idx}`} className="h-full w-full" />;
