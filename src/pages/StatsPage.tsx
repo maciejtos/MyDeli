@@ -20,7 +20,7 @@ const StatsPage: React.FC = () => {
   const { stats: previousStats } = useStats(prevRides);
 
   return (
-    <div className="animate-in fade-in duration-500 pb-8">
+    <div className="animate-in fade-in duration-300 pb-8">
       <MonthNavigator />
 
       <Tabs defaultValue="overview" className="w-full">

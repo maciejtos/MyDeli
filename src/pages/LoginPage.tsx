@@ -47,18 +47,23 @@ const LoginPage: React.FC = () => {
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-chart-2/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-      <div className="w-full max-w-md animate-in fade-in zoom-in-95 duration-500">
-        <div className="flex flex-col items-center mb-5">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-xl shadow-primary/30 mb-4 transition-transform hover:rotate-12 duration-300">
-            <Bike size={32} />
+      <div className="w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
+        <div className="flex flex-col items-center mb-6 text-center">
+          <div className="relative flex items-center justify-center mb-4">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-chart-2 rounded-full blur-md opacity-40 animate-pulse" />
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-primary/80 text-primary-foreground shadow-lg border border-primary/20">
+              <Bike size={28} className="animate-pulse" />
+            </div>
           </div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-foreground">
+          <h1 className="text-4xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
             MyDeli
           </h1>
-          <p className="text-sm text-muted-foreground mt-1 font-medium">Twój cyfrowy dziennik jazd</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mt-1.5">
+            Twój cyfrowy dziennik jazd
+          </p>
         </div>
 
-        <Card className="border-border shadow-2xl backdrop-blur-xl bg-card/90 rounded-3xl overflow-hidden">
+        <Card className="border-border/40 shadow-2xl backdrop-blur-xl bg-card/75 rounded-3xl overflow-hidden border">
           <CardHeader className="space-y-1.5 pb-4">
             <CardTitle className="text-2xl font-bold tracking-tight">
               {isRegister ? "Załóż konto" : "Witaj ponownie"}
@@ -85,7 +90,7 @@ const LoginPage: React.FC = () => {
                     value={displayName}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDisplayName(e.target.value)}
                     required
-                    className="rounded-xl border-border bg-background/80 focus:bg-background transition-colors"
+                    className="rounded-xl border-border bg-background/80 focus:bg-background transition-colors h-11"
                   />
                 </div>
               )}
@@ -98,7 +103,7 @@ const LoginPage: React.FC = () => {
                   value={email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   required
-                  className="rounded-xl border-border bg-background/80 focus:bg-background transition-colors"
+                  className="rounded-xl border-border bg-background/80 focus:bg-background transition-colors h-11"
                 />
               </div>
               <div className="space-y-1.5">
@@ -110,10 +115,10 @@ const LoginPage: React.FC = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                   required
                   minLength={6}
-                  className="rounded-xl border-border bg-background/80 focus:bg-background transition-colors"
+                  className="rounded-xl border-border bg-background/80 focus:bg-background transition-colors h-11"
                 />
               </div>
-              <Button type="submit" className="w-full rounded-xl h-11 font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-[1.01] active:scale-[0.99] mt-2" disabled={loading}>
+              <Button type="submit" className="w-full rounded-xl h-11 font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-[1.01] active:scale-[0.99] mt-2 cursor-pointer" disabled={loading}>
                 {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 {isRegister ? "Zarejestruj się" : "Zaloguj się"}
               </Button>
@@ -121,10 +126,10 @@ const LoginPage: React.FC = () => {
 
             <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
-                <Separator className="bg-border" />
+                <Separator className="bg-border/60" />
               </div>
               <div className="relative flex justify-center text-xs uppercase font-semibold">
-                <span className="bg-card px-3 text-muted-foreground rounded-full border border-border py-0.5">
+                <span className="bg-card px-3 text-muted-foreground rounded-full border border-border/40 py-0.5 backdrop-blur-md">
                   Lub kontynuuj z
                 </span>
               </div>
@@ -133,7 +138,7 @@ const LoginPage: React.FC = () => {
             <Button
               variant="outline"
               type="button"
-              className="w-full rounded-xl h-11 bg-background hover:bg-muted border-border transition-all hover:scale-[1.01] active:scale-[0.99]"
+              className="w-full rounded-xl h-11 bg-background/50 hover:bg-muted border-border/60 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
               disabled={loading}
               onClick={handleGoogleLogin}
             >
@@ -166,7 +171,7 @@ const LoginPage: React.FC = () => {
                   setIsRegister(!isRegister);
                   clearError();
                 }}
-                className="font-semibold text-primary hover:underline hover:text-primary/95 transition-colors focus:outline-none"
+                className="font-semibold text-primary hover:underline hover:text-primary/95 transition-colors focus:outline-none cursor-pointer"
               >
                 {isRegister ? "Zaloguj się" : "Zarejestruj się"}
               </button>

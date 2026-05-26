@@ -151,7 +151,7 @@ const SettingsPage: React.FC = () => {
   };
 
   return (
-    <div className="animate-in fade-in duration-500 pb-8">
+    <div className="animate-in fade-in duration-300 pb-8">
       <div className="mb-5">
         <h1 className="text-2xl font-extrabold tracking-tight text-foreground">Ustawienia</h1>
       </div>

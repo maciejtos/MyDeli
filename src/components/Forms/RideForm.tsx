@@ -121,18 +121,18 @@ const RideForm: React.FC<RideFormProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={(open: boolean) => !open && onClose()}>
       <DialogContent 
-        className="sm:max-w-[425px] overflow-y-auto max-h-[92dvh] border-border bg-card backdrop-blur-xl shadow-2xl rounded-3xl p-4 sm:p-5"
+        className="sm:max-w-[425px] overflow-y-auto max-h-[92dvh] border-border bg-card backdrop-blur-xl shadow-2xl rounded-3xl p-4 sm:p-5 flex flex-col gap-3.5"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <DialogHeader className="pb-2 border-b border-border/40">
+        <DialogHeader className="pb-2 border-b border-border/40 shrink-0">
           <DialogTitle className="text-2xl font-black text-foreground">
             {isEditing ? "Edytuj jazdę" : "Nowa jazda"}
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-2 py-2">
-          <div className="space-y-1">
-            <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Data</Label>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 pt-1">
+          <div className="flex flex-col gap-1">
+            <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">Data</Label>
             <Input 
               type="date" 
               value={date} 
@@ -142,8 +142,8 @@ const RideForm: React.FC<RideFormProps> = ({
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1">
-              <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            <div className="flex flex-col gap-1">
+              <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
                 <Clock size={12} className="text-primary" /> Start
               </Label>
               <Input 
@@ -153,8 +153,8 @@ const RideForm: React.FC<RideFormProps> = ({
                 className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
               />
             </div>
-            <div className="space-y-1">
-              <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            <div className="flex flex-col gap-1">
+              <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
                 <Clock size={12} className="text-primary" /> Koniec
               </Label>
               <Input 
@@ -173,8 +173,8 @@ const RideForm: React.FC<RideFormProps> = ({
             </div>
           )}
 
-          <div className="space-y-1">
-            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <div className="flex flex-col gap-1">
+            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
               <DollarSign size={12} className="text-primary" /> Zarobki
             </Label>
             <Input
@@ -189,8 +189,8 @@ const RideForm: React.FC<RideFormProps> = ({
             {errors.earnings && <p className="text-xs font-semibold text-destructive">{errors.earnings}</p>}
           </div>
 
-          <div className="space-y-1">
-            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <div className="flex flex-col gap-1">
+            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
               <MapPin size={12} className="text-primary" /> Dystans (km)
             </Label>
             <Input
@@ -211,8 +211,8 @@ const RideForm: React.FC<RideFormProps> = ({
             </div>
           )}
 
-          <div className="space-y-1">
-            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <div className="flex flex-col gap-1">
+            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
               <FileText size={12} className="text-primary" /> Notatki
             </Label>
             <Input

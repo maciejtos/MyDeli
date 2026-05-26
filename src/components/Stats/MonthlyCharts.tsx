@@ -57,7 +57,7 @@ const MonthlyCharts: React.FC<MonthlyChartsProps> = ({
 }) => {
   if (dailyData.length === 0) {
     return (
-      <Card className="border-border shadow-xl overflow-hidden bg-card rounded-3xl p-8 text-center animate-in fade-in duration-500">
+      <Card className="border-border shadow-xl overflow-hidden bg-card rounded-3xl p-8 text-center animate-in fade-in duration-300">
         <CardContent className="flex flex-col items-center justify-center py-6">
           <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 shadow-sm">
             <BarChart3 size={28} />
