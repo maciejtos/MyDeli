@@ -49,12 +49,17 @@ export function useRides() {
   const addRide = useCallback(
     async (ride: Omit<Ride, "id" | "createdAt" | "updatedAt">) => {
       if (!user) return;
-      const ridesRef = collection(db, "users", user.uid, "rides");
-      await addDoc(ridesRef, {
-        ...ride,
-        createdAt: Timestamp.now(),
-        updatedAt: Timestamp.now(),
-      });
+      try {
+        const ridesRef = collection(db, "users", user.uid, "rides");
+        await addDoc(ridesRef, {
+          ...ride,
+          createdAt: Timestamp.now(),
+          updatedAt: Timestamp.now(),
+        });
+      } catch (error: any) {
+        console.error("Error adding ride:", error);
+        throw error;
+      }
     },
     [user]
   );
@@ -62,11 +67,16 @@ export function useRides() {
   const updateRide = useCallback(
     async (rideId: string, data: Partial<Omit<Ride, "id" | "createdAt" | "updatedAt">>) => {
       if (!user) return;
-      const rideRef = doc(db, "users", user.uid, "rides", rideId);
-      await updateDoc(rideRef, {
-        ...data,
-        updatedAt: Timestamp.now(),
-      });
+      try {
+        const rideRef = doc(db, "users", user.uid, "rides", rideId);
+        await updateDoc(rideRef, {
+          ...data,
+          updatedAt: Timestamp.now(),
+        });
+      } catch (error: any) {
+        console.error("Error updating ride:", error);
+        throw error;
+      }
     },
     [user]
   );
@@ -74,8 +84,13 @@ export function useRides() {
   const deleteRide = useCallback(
     async (rideId: string) => {
       if (!user) return;
-      const rideRef = doc(db, "users", user.uid, "rides", rideId);
-      await deleteDoc(rideRef);
+      try {
+        const rideRef = doc(db, "users", user.uid, "rides", rideId);
+        await deleteDoc(rideRef);
+      } catch (error: any) {
+        console.error("Error deleting ride:", error);
+        throw error;
+      }
     },
     [user]
   );

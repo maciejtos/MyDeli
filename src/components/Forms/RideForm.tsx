@@ -100,7 +100,7 @@ const RideForm: React.FC<RideFormProps> = ({
       endTime,
       earnings: parseFloat(earnings),
       distanceKm: parseFloat(distanceKm),
-      notes: notes.trim() || undefined,
+      notes: notes.trim() || "",
     };
 
     if (isEditing && onUpdate && ride) {

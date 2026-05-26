@@ -52,25 +52,40 @@ const CalendarPage: React.FC = () => {
 
   const handleSave = useCallback(
     async (data: Omit<Ride, "id" | "createdAt" | "updatedAt">) => {
-      await addRide(data);
-      showToast("Jazda zapisana pomyślnie");
+      try {
+        await addRide(data);
+        showToast("Jazda zapisana pomyślnie");
+      } catch (error: any) {
+        console.error(error);
+        showToast("Błąd zapisu: " + (error.message || "Brak uprawnień"));
+      }
     },
     [addRide]
   );
 
   const handleUpdate = useCallback(
     async (id: string, data: Partial<Omit<Ride, "id" | "createdAt" | "updatedAt">>) => {
-      await updateRide(id, data);
-      showToast("Jazda zaktualizowana");
+      try {
+        await updateRide(id, data);
+        showToast("Jazda zaktualizowana");
+      } catch (error: any) {
+        console.error(error);
+        showToast("Błąd aktualizacji: " + (error.message || "Brak uprawnień"));
+      }
     },
     [updateRide]
   );
 
   const handleDelete = useCallback(
     async (id: string) => {
-      await deleteRide(id);
-      showToast("Jazda usunięta");
-      setShowDayModal(false);
+      try {
+        await deleteRide(id);
+        showToast("Jazda usunięta");
+        setShowDayModal(false);
+      } catch (error: any) {
+        console.error(error);
+        showToast("Błąd usuwania: " + (error.message || "Brak uprawnień"));
+      }
     },
     [deleteRide]
   );
