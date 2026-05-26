@@ -48,17 +48,19 @@ const LoginPage: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-chart-2/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
-        <div className="flex flex-col items-center mb-6 text-center">
-          <h1 className="text-4xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
-            MyDeli
-          </h1>
+        <div className="flex flex-col items-center mb-6 text-center overflow-visible">
+          <div className="py-1 px-2 overflow-visible">
+            <h1 className="text-4xl font-black tracking-tight text-primary">
+              MyDeli
+            </h1>
+          </div>
           <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mt-1.5">
             Twój cyfrowy dziennik jazd
           </p>
         </div>
 
         <Card className="border-border/40 shadow-2xl backdrop-blur-xl bg-card/75 rounded-3xl overflow-hidden border">
-          <CardHeader className="space-y-1 pb-3">
+          <CardHeader className="space-y-1 pb-3 text-center">
             <CardTitle className="text-xl font-bold tracking-tight">
               {isRegister ? "Załóż konto" : "Witaj ponownie"}
             </CardTitle>
