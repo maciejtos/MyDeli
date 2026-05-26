@@ -38,7 +38,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt'],
       manifest: {
-        name: 'MyDeli — Tracker Kuriera',
+        name: 'MyDeli - Dziennik Dostaw',
         short_name: 'MyDeli',
         description: 'Aplikacja do śledzenia jazd delivery dla kurierów rowerowych',
         theme_color: '#0A0A0F',

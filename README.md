@@ -1,4 +1,4 @@
-# 🚴 MyDeli — Tracker Kuriera Rowerowego
+# 🚴 MyDeli - Dziennik Dostaw
 
 Kompletna aplikacja PWA do śledzenia jazd delivery dla kurierów rowerowych.
 Śledź zarobki, kilometry, czas pracy i analizuj statystyki.
