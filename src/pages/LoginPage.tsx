@@ -49,20 +49,6 @@ const LoginPage: React.FC = () => {
 
       <div className="w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
         <div className="flex flex-col items-center mb-6 text-center">
-          <div className="relative flex items-center justify-center mb-4">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-chart-2 rounded-full blur-md opacity-40 animate-pulse" />
-            <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-primary/80 text-primary-foreground shadow-lg border border-primary/20">
-              <svg viewBox="0 0 512 512" className="h-8 w-8 fill-none stroke-current" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M 216 176 A 40 40 0 0 1 296 176" strokeWidth="32" />
-                <rect x="156" y="176" width="200" height="200" rx="44" strokeWidth="32" />
-                <line x1="202" y1="316" x2="202" y2="280" strokeWidth="32" />
-                <line x1="256" y1="316" x2="256" y2="240" strokeWidth="32" />
-                <line x1="310" y1="316" x2="310" y2="200" strokeWidth="32" />
-                <path d="M 202 280 L 256 240 L 310 200 L 366 144" strokeWidth="24" />
-                <circle cx="366" cy="144" r="16" fill="currentColor" strokeWidth="0" />
-              </svg>
-            </div>
-          </div>
           <h1 className="text-4xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
             MyDeli
           </h1>

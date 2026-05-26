@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, NavLink, useLocation } from "react-router-dom";
 import BottomNav from "./BottomNav";
 import { CalendarDays, BarChart2, Settings, Plus } from "lucide-react";
+import { Logo } from "../Logo";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useAppStore } from "../../store/appStore";
@@ -29,16 +30,8 @@ const AppLayout: React.FC = () => {
       {/* Desktop Sidebar Navigation */}
       <aside className="hidden md:flex flex-col w-64 border-r border-border bg-card/90 backdrop-blur-xl p-6 shrink-0 h-screen sticky top-0 z-50">
         <div className="flex items-center gap-3 mb-10 pl-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20 shrink-0">
-            <svg viewBox="0 0 512 512" className="h-6 w-6 fill-none stroke-current" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M 216 176 A 40 40 0 0 1 296 176" strokeWidth="32" />
-              <rect x="156" y="176" width="200" height="200" rx="44" strokeWidth="32" />
-              <line x1="202" y1="316" x2="202" y2="280" strokeWidth="32" />
-              <line x1="256" y1="316" x2="256" y2="240" strokeWidth="32" />
-              <line x1="310" y1="316" x2="310" y2="200" strokeWidth="32" />
-              <path d="M 202 280 L 256 240 L 310 200 L 366 144" strokeWidth="24" />
-              <circle cx="366" cy="144" r="16" fill="currentColor" strokeWidth="0" />
-            </svg>
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
+            <Logo size={22} />
           </div>
           <span className="text-xl font-black tracking-tight text-foreground">
             MyDeli

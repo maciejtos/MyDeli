@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <!-- Background Gradient -->
+    <!-- Background Gradient: Deep rich Indigo/Violet to Dark Purple/Pink -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#4F46E5"/>
       <stop offset="50%" stop-color="#7C3AED"/>
       <stop offset="100%" stop-color="#EC4899"/>
     </linearGradient>
     
-    <!-- Accent Gradient for the statistics bars inside -->
+    <!-- Accent Gradient for the statistics columns -->
     <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#06B6D4"/>
       <stop offset="100%" stop-color="#10B981"/>
@@ -23,27 +23,36 @@
   <!-- Background Card -->
   <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
   
-  <!-- Subtle grid rings -->
+  <!-- Subtle background grid/pattern for high-tech premium feel -->
   <circle cx="256" cy="256" r="220" fill="none" stroke="white" stroke-opacity="0.03" stroke-width="2"/>
-  
-  <!-- Bag + Stats Logo -->
-  <g transform="translate(0, 15)">
-    <!-- Backpack Top Handle -->
-    <path d="M 216 176 A 40 40 0 0 1 296 176" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/>
-    
-    <!-- Backpack Main Body -->
-    <rect x="156" y="176" width="200" height="200" rx="44" fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
-    
-    <!-- Stats Bars (inside the bag) -->
-    <line x1="202" y1="316" x2="202" y2="280" stroke="url(#accentGrad)" stroke-width="24" stroke-linecap="round"/>
-    <line x1="256" y1="316" x2="256" y2="240" stroke="url(#accentGrad)" stroke-width="24" stroke-linecap="round"/>
-    <line x1="310" y1="316" x2="310" y2="200" stroke="url(#accentGrad)" stroke-width="24" stroke-linecap="round"/>
-    
-    <!-- Trend line showing statistics growth, exiting the bag -->
-    <path d="M 202 280 L 256 240 L 310 200 L 366 144" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
-    <path d="M 202 280 L 256 240 L 310 200 L 366 144" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="180" fill="none" stroke="white" stroke-opacity="0.02" stroke-width="1.5"/>
 
-    <!-- Glowing peak node -->
-    <circle cx="366" cy="144" r="16" fill="url(#accentGrad)" stroke="white" stroke-width="5" filter="url(#glow)"/>
+  <!-- Logo Emblem: Delivery Backpack + Statistics -->
+  <g transform="translate(0, 0)">
+    <!-- Handle -->
+    <path d="M 206 180 C 206 135, 306 135, 306 180" fill="none" stroke="white" stroke-width="16" stroke-linecap="round"/>
+
+    {/* Main Box */}
+    <rect x="156" y="180" width="200" height="200" rx="36" fill="none" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Left Pocket -->
+    <rect x="136" y="225" width="20" height="110" rx="8" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Right Pocket -->
+    <rect x="356" y="225" width="20" height="110" rx="8" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Stats Bars -->
+    <rect x="186" y="296" width="28" height="60" rx="8" fill="url(#accentGrad)" filter="url(#glow)"/>
+    <rect x="242" y="256" width="28" height="100" rx="8" fill="url(#accentGrad)" filter="url(#glow)"/>
+    <rect x="298" y="216" width="28" height="140" rx="8" fill="url(#accentGrad)" filter="url(#glow)"/>
+
+    <!-- Line Chart (Trend Line) -->
+    <path d="M 200 281 L 256 241 L 312 201 L 348 161" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+
+    <!-- Vertices -->
+    <circle cx="200" cy="281" r="9" fill="white" filter="url(#glow)"/>
+    <circle cx="256" cy="241" r="9" fill="white" filter="url(#glow)"/>
+    <circle cx="312" cy="201" r="9" fill="white" filter="url(#glow)"/>
+    <circle cx="348" cy="161" r="9" fill="white" filter="url(#glow)"/>
   </g>
 </svg>
