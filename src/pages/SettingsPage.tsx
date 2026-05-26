@@ -114,9 +114,7 @@ const SettingsPage: React.FC = () => {
     ? Math.min((stats.totalKm / monthlyKmGoal) * 100, 100)
     : 0;
 
-  const isEmailUser = useMemo(() => {
-    return user?.providerData.some((p) => p.providerId === "password") ?? false;
-  }, [user]);
+
 
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -254,11 +252,11 @@ const SettingsPage: React.FC = () => {
                     </SelectContent>
                   </Select>
                 }
-                isLast={!isEmailUser}
+                isLast={false}
               />
 
               {/* Password */}
-              {isEmailUser && (
+              {user && (
                 <>
                   <SettingsRow
                     icon={<Lock size={15} className="text-red-400" />}

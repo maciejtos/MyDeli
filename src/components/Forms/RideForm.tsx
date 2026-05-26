@@ -120,21 +120,24 @@ const RideForm: React.FC<RideFormProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open: boolean) => !open && onClose()}>
-      <DialogContent className="sm:max-w-[425px] overflow-y-auto max-h-[90dvh] border-border bg-card backdrop-blur-xl shadow-2xl rounded-3xl p-5">
+      <DialogContent 
+        className="sm:max-w-[425px] overflow-y-auto max-h-[92dvh] border-border bg-card backdrop-blur-xl shadow-2xl rounded-3xl p-4 sm:p-5"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         <DialogHeader className="pb-2 border-b border-border/40">
           <DialogTitle className="text-2xl font-black text-foreground">
             {isEditing ? "Edytuj jazdę" : "Nowa jazda"}
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-3 py-3">
+        <form onSubmit={handleSubmit} className="space-y-2 py-2">
           <div className="space-y-1">
             <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Data</Label>
             <Input 
               type="date" 
               value={date} 
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value)} 
-              className="rounded-xl border-border bg-background transition-colors"
+              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
             />
           </div>
 
@@ -147,7 +150,7 @@ const RideForm: React.FC<RideFormProps> = ({
                 type="time" 
                 value={startTime} 
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStartTime(e.target.value)} 
-                className="rounded-xl border-border bg-background transition-colors"
+                className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
               />
             </div>
             <div className="space-y-1">
@@ -158,14 +161,14 @@ const RideForm: React.FC<RideFormProps> = ({
                 type="time" 
                 value={endTime} 
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEndTime(e.target.value)} 
-                className="rounded-xl border-border bg-background transition-colors"
+                className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
               />
             </div>
           </div>
           {errors.time && <p className="text-xs font-semibold text-destructive">{errors.time}</p>}
 
           {workMinutes > 0 && (
-            <div className="rounded-xl bg-primary/10 border border-primary/20 px-3 py-2.5 text-xs text-center font-bold text-primary">
+            <div className="rounded-xl bg-primary/10 border border-primary/20 px-3 py-2 text-xs text-center font-bold text-primary">
               Czas pracy: {formatWorkTime(workMinutes)}
             </div>
           )}
@@ -181,7 +184,7 @@ const RideForm: React.FC<RideFormProps> = ({
               value={earnings}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEarnings(e.target.value)}
               placeholder="0.00"
-              className="rounded-xl border-border bg-background transition-colors"
+              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
             />
             {errors.earnings && <p className="text-xs font-semibold text-destructive">{errors.earnings}</p>}
           </div>
@@ -197,13 +200,13 @@ const RideForm: React.FC<RideFormProps> = ({
               value={distanceKm}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDistanceKm(e.target.value)}
               placeholder="0.0"
-              className="rounded-xl border-border bg-background transition-colors"
+              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
             />
             {errors.distance && <p className="text-xs font-semibold text-destructive">{errors.distance}</p>}
           </div>
 
           {workMinutes > 0 && parseFloat(earnings) > 0 && (
-            <div className="rounded-xl bg-secondary border border-border/40 px-3 py-2.5 text-xs text-center font-bold text-foreground">
+            <div className="rounded-xl bg-secondary border border-border/40 px-3 py-2 text-xs text-center font-bold text-foreground">
               Stawka: {hourlyRate.toFixed(2)} {currency}/h
             </div>
           )}
@@ -216,7 +219,7 @@ const RideForm: React.FC<RideFormProps> = ({
               value={notes}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNotes(e.target.value)}
               placeholder="Dodaj notatki..."
-              className="rounded-xl border-border bg-background transition-colors"
+              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
             />
           </div>
 
