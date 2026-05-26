@@ -130,14 +130,14 @@ const RideForm: React.FC<RideFormProps> = ({
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 pt-1">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 pt-1 shrink-0">
           <div className="flex flex-col gap-1">
             <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">Data</Label>
             <Input 
               type="date" 
               value={date} 
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value)} 
-              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
+              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
             />
           </div>
 
@@ -150,7 +150,7 @@ const RideForm: React.FC<RideFormProps> = ({
                 type="time" 
                 value={startTime} 
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStartTime(e.target.value)} 
-                className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
+                className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -161,7 +161,7 @@ const RideForm: React.FC<RideFormProps> = ({
                 type="time" 
                 value={endTime} 
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEndTime(e.target.value)} 
-                className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
+                className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
               />
             </div>
           </div>
@@ -184,7 +184,7 @@ const RideForm: React.FC<RideFormProps> = ({
               value={earnings}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEarnings(e.target.value)}
               placeholder="0.00"
-              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
+              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
             />
             {errors.earnings && <p className="text-xs font-semibold text-destructive">{errors.earnings}</p>}
           </div>
@@ -200,7 +200,7 @@ const RideForm: React.FC<RideFormProps> = ({
               value={distanceKm}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDistanceKm(e.target.value)}
               placeholder="0.0"
-              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
+              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
             />
             {errors.distance && <p className="text-xs font-semibold text-destructive">{errors.distance}</p>}
           </div>
@@ -219,7 +219,7 @@ const RideForm: React.FC<RideFormProps> = ({
               value={notes}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNotes(e.target.value)}
               placeholder="Dodaj notatki..."
-              className="rounded-xl border-border bg-background h-10 text-sm transition-colors"
+              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
             />
           </div>
 
