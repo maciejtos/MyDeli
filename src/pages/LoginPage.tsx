@@ -114,7 +114,7 @@ const LoginPage: React.FC = () => {
                   className="rounded-xl border-border bg-background/80 focus:bg-background transition-colors h-11"
                 />
               </div>
-              <Button type="submit" className="w-full rounded-xl h-11 font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-[1.01] active:scale-[0.99] mt-2 cursor-pointer" disabled={loading}>
+              <Button type="submit" className="w-full rounded-xl h-11 font-semibold shadow-lg shadow-primary/20 transition-colors mt-2 cursor-pointer" disabled={loading}>
                 {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 {isRegister ? "Zarejestruj się" : "Zaloguj się"}
               </Button>
@@ -134,7 +134,7 @@ const LoginPage: React.FC = () => {
             <Button
               variant="outline"
               type="button"
-              className="w-full rounded-xl h-11 bg-background/50 hover:bg-muted border-border/60 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+              className="w-full rounded-xl h-11 bg-background/50 hover:bg-muted border-border/60 transition-colors cursor-pointer"
               disabled={loading}
               onClick={handleGoogleLogin}
             >

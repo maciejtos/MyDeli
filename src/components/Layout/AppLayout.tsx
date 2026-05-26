@@ -68,7 +68,7 @@ const AppLayout: React.FC = () => {
           {/* Add Ride Button for Desktop Sidebar */}
           <Button
             onClick={() => setAddRideOpen(true)}
-            className="w-full mt-6 rounded-xl h-11 font-semibold bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+            className="w-full mt-6 rounded-xl h-11 font-semibold bg-primary text-primary-foreground shadow-lg shadow-primary/25 active:scale-[0.98] transition-transform duration-150 cursor-pointer"
           >
             <Plus className="mr-2" size={16} />
             Dodaj jazdę

@@ -27,8 +27,8 @@ const CalendarDay: React.FC<CalendarDayProps> = ({ day, dateStr, rides, isWeeken
     <button
       onClick={onClick}
       className={cn(
-        "relative flex flex-col items-center justify-start h-full w-full rounded-lg sm:rounded-xl p-0.5 sm:p-1 md:p-1.5 transition-all duration-200",
-        "border hover:scale-[1.03] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
+        "relative flex flex-col items-center justify-start h-full w-full rounded-lg sm:rounded-xl p-0.5 sm:p-1 md:p-1.5 transition-colors duration-150",
+        "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
         // Today styling takes priority
         isToday 
           ? "border-primary bg-primary/8 ring-2 ring-primary/25 shadow-md shadow-primary/10" 
@@ -44,7 +44,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({ day, dateStr, rides, isWeeken
     >
       {hasRides && (
         <div 
-          className="absolute inset-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/25 to-primary/8 pointer-events-none transition-opacity duration-300" 
+          className="absolute inset-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/25 to-primary/8 pointer-events-none" 
           style={{ opacity }}
         />
       )}

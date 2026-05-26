@@ -121,61 +121,67 @@ const RideForm: React.FC<RideFormProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={(open: boolean) => !open && onClose()}>
       <DialogContent 
-        className="sm:max-w-[425px] overflow-y-auto max-h-[92dvh] border-border bg-card backdrop-blur-xl shadow-2xl rounded-3xl p-4 sm:p-5 flex flex-col gap-3.5"
+        className="sm:max-w-[425px] overflow-hidden border-border bg-card backdrop-blur-xl shadow-2xl rounded-3xl p-3.5 sm:p-5 flex flex-col gap-3 max-h-[96dvh]"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <DialogHeader className="pb-2 border-b border-border/40 shrink-0">
-          <DialogTitle className="text-2xl font-black text-foreground">
+        <DialogHeader className="pb-1.5 border-b border-border/40 shrink-0">
+          <DialogTitle className="text-xl sm:text-2xl font-black text-foreground">
             {isEditing ? "Edytuj jazdę" : "Nowa jazda"}
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 pt-1 shrink-0">
-          <div className="flex flex-col gap-1">
-            <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">Data</Label>
-            <Input 
-              type="date" 
-              value={date} 
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value)} 
-              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
-            />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 pt-0.5 shrink-0 overflow-hidden">
+          <div className="flex flex-col gap-0.5 overflow-hidden">
+            <Label className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">Data</Label>
+            <div className="overflow-hidden w-full">
+              <input 
+                type="date" 
+                value={date} 
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value)} 
+                className="ride-form-datetime rounded-xl border border-border bg-background h-10 sm:h-11 transition-colors px-2 sm:px-3 text-foreground outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+              />
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="flex flex-col gap-1">
-              <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
-                <Clock size={12} className="text-primary" /> Start
+          <div className="grid grid-cols-2 gap-2 overflow-hidden">
+            <div className="flex flex-col gap-0.5 overflow-hidden">
+              <Label className="flex items-center gap-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5 truncate">
+                <Clock size={11} className="text-primary shrink-0" /> Start
               </Label>
-              <Input 
-                type="time" 
-                value={startTime} 
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStartTime(e.target.value)} 
-                className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
-              />
+              <div className="overflow-hidden w-full">
+                <input 
+                  type="time" 
+                  value={startTime} 
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStartTime(e.target.value)} 
+                  className="ride-form-datetime rounded-xl border border-border bg-background h-10 sm:h-11 transition-colors px-2 sm:px-3 text-foreground outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                />
+              </div>
             </div>
-            <div className="flex flex-col gap-1">
-              <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
-                <Clock size={12} className="text-primary" /> Koniec
+            <div className="flex flex-col gap-0.5 overflow-hidden">
+              <Label className="flex items-center gap-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5 truncate">
+                <Clock size={11} className="text-primary shrink-0" /> Koniec
               </Label>
-              <Input 
-                type="time" 
-                value={endTime} 
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEndTime(e.target.value)} 
-                className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
-              />
+              <div className="overflow-hidden w-full">
+                <input 
+                  type="time" 
+                  value={endTime} 
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEndTime(e.target.value)} 
+                  className="ride-form-datetime rounded-xl border border-border bg-background h-10 sm:h-11 transition-colors px-2 sm:px-3 text-foreground outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                />
+              </div>
             </div>
           </div>
-          {errors.time && <p className="text-xs font-semibold text-destructive">{errors.time}</p>}
+          {errors.time && <p className="text-[10px] font-semibold text-destructive">{errors.time}</p>}
 
           {workMinutes > 0 && (
-            <div className="rounded-xl bg-primary/10 border border-primary/20 px-3 py-2 text-xs text-center font-bold text-primary">
+            <div className="rounded-xl bg-primary/10 border border-primary/20 px-3 py-1.5 text-[10px] sm:text-xs text-center font-bold text-primary">
               Czas pracy: {formatWorkTime(workMinutes)}
             </div>
           )}
 
-          <div className="flex flex-col gap-1">
-            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
-              <DollarSign size={12} className="text-primary" /> Zarobki
+          <div className="flex flex-col gap-0.5 overflow-hidden">
+            <Label className="flex items-center gap-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
+              <DollarSign size={11} className="text-primary" /> Zarobki
             </Label>
             <Input
               type="number"
@@ -184,14 +190,14 @@ const RideForm: React.FC<RideFormProps> = ({
               value={earnings}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEarnings(e.target.value)}
               placeholder="0.00"
-              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
+              className="rounded-xl border-border bg-background h-10 sm:h-11 transition-colors px-2 sm:px-3"
             />
-            {errors.earnings && <p className="text-xs font-semibold text-destructive">{errors.earnings}</p>}
+            {errors.earnings && <p className="text-[10px] font-semibold text-destructive">{errors.earnings}</p>}
           </div>
 
-          <div className="flex flex-col gap-1">
-            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
-              <MapPin size={12} className="text-primary" /> Dystans (km)
+          <div className="flex flex-col gap-0.5 overflow-hidden">
+            <Label className="flex items-center gap-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
+              <MapPin size={11} className="text-primary" /> Dystans (km)
             </Label>
             <Input
               type="number"
@@ -200,41 +206,41 @@ const RideForm: React.FC<RideFormProps> = ({
               value={distanceKm}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDistanceKm(e.target.value)}
               placeholder="0.0"
-              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
+              className="rounded-xl border-border bg-background h-10 sm:h-11 transition-colors px-2 sm:px-3"
             />
-            {errors.distance && <p className="text-xs font-semibold text-destructive">{errors.distance}</p>}
+            {errors.distance && <p className="text-[10px] font-semibold text-destructive">{errors.distance}</p>}
           </div>
 
           {workMinutes > 0 && parseFloat(earnings) > 0 && (
-            <div className="rounded-xl bg-secondary border border-border/40 px-3 py-2 text-xs text-center font-bold text-foreground">
+            <div className="rounded-xl bg-secondary border border-border/40 px-3 py-1.5 text-[10px] sm:text-xs text-center font-bold text-foreground">
               Stawka: {hourlyRate.toFixed(2)} {currency}/h
             </div>
           )}
 
-          <div className="flex flex-col gap-1">
-            <Label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
-              <FileText size={12} className="text-primary" /> Notatki
+          <div className="flex flex-col gap-0.5 overflow-hidden">
+            <Label className="flex items-center gap-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground px-0.5">
+              <FileText size={11} className="text-primary" /> Notatki
             </Label>
             <Input
               value={notes}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNotes(e.target.value)}
               placeholder="Dodaj notatki..."
-              className="rounded-xl border-border bg-background h-11 text-sm transition-colors"
+              className="rounded-xl border-border bg-background h-10 sm:h-11 transition-colors px-2 sm:px-3"
             />
           </div>
 
-          <DialogFooter className="flex-col sm:flex-row gap-2 pt-3 border-t border-border/40 mt-1">
+          <DialogFooter className="flex-row gap-2 pt-2.5 border-t border-border/40 mt-1">
             {isEditing && (
-              <Button type="button" variant="destructive" onClick={handleDelete} className="w-full sm:w-auto rounded-xl h-11 font-semibold">
-                <Trash2 size={16} className="mr-2" /> Usuń
+              <Button type="button" variant="destructive" onClick={handleDelete} className="rounded-xl h-10 sm:h-11 font-semibold px-3 shrink-0">
+                <Trash2 size={15} />
               </Button>
             )}
-            <div className="flex gap-2 w-full sm:w-auto ml-auto">
-              <Button type="button" variant="outline" onClick={onClose} className="flex-1 rounded-xl h-11 font-semibold">
+            <div className="flex gap-2 w-full ml-auto">
+              <Button type="button" variant="outline" onClick={onClose} className="flex-1 rounded-xl h-10 sm:h-11 font-semibold text-xs sm:text-sm">
                 Anuluj
               </Button>
-              <Button type="submit" className="flex-1 rounded-xl h-11 font-semibold shadow-lg shadow-primary/25">
-                <Save size={16} className="mr-2" /> Zapisz
+              <Button type="submit" className="flex-1 rounded-xl h-10 sm:h-11 font-semibold text-xs sm:text-sm shadow-lg shadow-primary/25">
+                <Save size={15} className="mr-1.5" /> Zapisz
               </Button>
             </div>
           </DialogFooter>

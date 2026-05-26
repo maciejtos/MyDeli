@@ -15,7 +15,7 @@ const LoadingSkeleton: React.FC = () => (
   <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 overflow-visible">
     <div className="flex flex-col items-center text-center space-y-4 overflow-visible">
       <div className="py-2 overflow-visible">
-        <h1 className="text-4xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent px-2">
+        <h1 className="text-4xl font-black tracking-tight text-primary px-2">
           MyDeli
         </h1>
       </div>

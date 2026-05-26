@@ -56,7 +56,7 @@ const BottomNav: React.FC = () => {
       <button
         type="button"
         onClick={() => setAddRideOpen(true)}
-        className="h-13 w-13 rounded-full bg-primary text-primary-foreground shadow-2xl shadow-primary/35 flex items-center justify-center pointer-events-auto hover:scale-105 active:scale-95 transition-all duration-200 border border-primary/20 cursor-pointer shrink-0"
+        className="h-13 w-13 rounded-full bg-primary text-primary-foreground shadow-2xl shadow-primary/35 flex items-center justify-center pointer-events-auto active:scale-95 transition-transform duration-150 border border-primary/20 cursor-pointer shrink-0"
         aria-label="Dodaj jazdę"
       >
         <Plus size={24} />

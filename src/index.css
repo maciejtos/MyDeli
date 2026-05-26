@@ -244,4 +244,35 @@
     -ms-overflow-style: none !important;
     scrollbar-width: none !important;
   }
+
+  /* Date & Time inputs — THE FIX:
+     Native date/time inputs use display:inline-flex by default,
+     which gives them intrinsic minimum width from their internal
+     WebKit pseudo-elements. Setting display:block forces them to
+     behave as block-level elements that respect width:100%.
+     The overflow:hidden on parent divs clips any remaining overshoot. */
+  .ride-form-datetime {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 14px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .ride-form-datetime::-webkit-datetime-edit {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+  .ride-form-datetime::-webkit-calendar-picker-indicator {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  /* Reduce page transition animations for performance */
+  .animate-in {
+    animation-duration: 150ms !important;
+  }
 }

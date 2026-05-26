@@ -133,7 +133,7 @@ const CalendarPage: React.FC = () => {
               <div className="space-y-4">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Szczegóły jazd</h3>
                 {selectedDayRides.map((ride) => (
-                  <Card key={ride.id} className="overflow-hidden border-border shadow-md bg-card rounded-2xl transition-all hover:scale-[1.01]">
+                  <Card key={ride.id} className="overflow-hidden border-border shadow-md bg-card rounded-2xl">
                     <CardContent className="p-0">
                       <div className="flex items-center justify-between p-3.5 bg-muted/40">
                         <div className="flex items-center gap-2 font-bold text-sm text-foreground">

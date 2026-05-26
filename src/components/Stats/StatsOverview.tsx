@@ -47,7 +47,7 @@ const StatCard: React.FC<StatCardProps> = ({
 }) => {
   return (
     <Card className={cn(
-      "border-border bg-card shadow-md overflow-hidden relative group rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-xl",
+      "border-border bg-card shadow-md overflow-hidden relative group rounded-2xl transition-colors duration-150",
       featured && "md:col-span-2 border-amber-500/30"
     )}>
       {/* Colored top accent bar — always visible */}
