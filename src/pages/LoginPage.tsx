@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 const LoginPage: React.FC = () => {
@@ -58,14 +58,14 @@ const LoginPage: React.FC = () => {
         </div>
 
         <Card className="border-border/40 shadow-2xl backdrop-blur-xl bg-card/75 rounded-3xl overflow-hidden border">
-          <CardHeader className="space-y-1.5 pb-4">
-            <CardTitle className="text-2xl font-bold tracking-tight">
+          <CardHeader className="space-y-1 pb-3">
+            <CardTitle className="text-xl font-bold tracking-tight">
               {isRegister ? "Załóż konto" : "Witaj ponownie"}
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
+            <CardDescription className="text-xs text-muted-foreground/80">
               {isRegister
-                ? "Wprowadź dane, aby utworzyć nowe konto."
-                : "Zaloguj się na swoje konto, aby kontynuować."}
+                ? "Wprowadź dane, aby utworzyć konto."
+                : "Zaloguj się na swoje konto."}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -156,11 +156,11 @@ const LoginPage: React.FC = () => {
               </svg>
               Google
             </Button>
-          </CardContent>
-          <CardFooter className="flex justify-center border-t border-border/40 bg-muted/20 py-4">
-            <p className="text-sm text-muted-foreground font-medium">
+
+            <div className="text-center mt-5 text-sm text-muted-foreground font-medium">
               {isRegister ? "Masz już konto?" : "Nie masz konta?"}{" "}
               <button
+                type="button"
                 onClick={() => {
                   setIsRegister(!isRegister);
                   clearError();
@@ -169,8 +169,8 @@ const LoginPage: React.FC = () => {
               >
                 {isRegister ? "Zaloguj się" : "Zarejestruj się"}
               </button>
-            </p>
-          </CardFooter>
+            </div>
+          </CardContent>
         </Card>
       </div>
     </div>

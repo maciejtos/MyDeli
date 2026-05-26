@@ -12,11 +12,17 @@ const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
 // Loading skeleton component
 const LoadingSkeleton: React.FC = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="text-center">
-      <div className="mx-auto mb-4 h-16 w-16 rounded-2xl skeleton" />
-      <div className="h-4 w-24 mx-auto skeleton mb-2" />
-      <div className="h-3 w-32 mx-auto skeleton" />
+  <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 overflow-visible">
+    <div className="flex flex-col items-center text-center space-y-4 overflow-visible">
+      <div className="py-2 overflow-visible">
+        <h1 className="text-4xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent px-2">
+          MyDeli
+        </h1>
+      </div>
+      <div className="h-8 w-8 rounded-full border-3 border-primary/20 border-t-primary animate-spin" />
+      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 mt-2">
+        Wczytywanie...
+      </p>
     </div>
   </div>
 );
