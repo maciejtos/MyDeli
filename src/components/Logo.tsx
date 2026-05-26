@@ -15,83 +15,27 @@ export const Logo: React.FC<LogoProps> = ({ className, size = 32 }) => {
       className={className}
     >
       <defs>
-        <linearGradient id="logoAccentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#06B6D4" />
-          <stop offset="100%" stopColor="#10B981" />
-        </linearGradient>
+        <mask id="logoMaskReact">
+          <rect width="512" height="512" fill="white" />
+          <line x1="166" y1="212" x2="346" y2="212" stroke="black" stroke-width="10" stroke-linecap="round" />
+          <rect x="200" y="285" width="24" height="50" rx="6" fill="black" />
+          <rect x="244" y="250" width="24" height="85" rx="6" fill="black" />
+          <rect x="288" y="215" width="24" height="120" rx="6" fill="black" />
+        </mask>
       </defs>
 
-      {/* Handle */}
-      <path
-        d="M 206 180 C 206 135, 306 135, 306 180"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="16"
-        strokeLinecap="round"
-      />
-
-      {/* Main Box */}
-      <rect
-        x="156"
-        y="180"
-        width="200"
-        height="200"
-        rx="36"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="16"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Left Pocket */}
-      <rect
-        x="136"
-        y="225"
-        width="20"
-        height="110"
-        rx="8"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="14"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Right Pocket */}
-      <rect
-        x="356"
-        y="225"
-        width="20"
-        height="110"
-        rx="8"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="14"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Stats Bars */}
-      <rect x="186" y="296" width="28" height="60" rx="8" fill="url(#logoAccentGrad)" />
-      <rect x="242" y="256" width="28" height="100" rx="8" fill="url(#logoAccentGrad)" />
-      <rect x="298" y="216" width="28" height="140" rx="8" fill="url(#logoAccentGrad)" />
-
-      {/* Line Chart */}
-      <path
-        d="M 200 281 L 256 241 L 312 201 L 348 161"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Vertices */}
-      <circle cx="200" cy="281" r="9" fill="currentColor" />
-      <circle cx="256" cy="241" r="9" fill="currentColor" />
-      <circle cx="312" cy="201" r="9" fill="currentColor" />
-      <circle cx="348" cy="161" r="9" fill="currentColor" />
+      <g mask="url(#logoMaskReact)">
+        <path
+          d="M 216 185 C 216 135, 296 135, 296 185"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="20"
+          strokeLinecap="round"
+        />
+        <rect x="166" y="185" width="180" height="180" rx="30" fill="currentColor" />
+        <rect x="146" y="225" width="20" height="100" rx="6" fill="currentColor" />
+        <rect x="346" y="225" width="20" height="100" rx="6" fill="currentColor" />
+      </g>
     </svg>
   );
 };

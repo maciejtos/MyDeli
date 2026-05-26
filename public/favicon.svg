@@ -1,58 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <!-- Background Gradient: Deep rich Indigo/Violet to Dark Purple/Pink -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4F46E5"/>
-      <stop offset="50%" stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#EC4899"/>
-    </linearGradient>
-    
-    <!-- Accent Gradient for the statistics columns -->
-    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#06B6D4"/>
-      <stop offset="100%" stop-color="#10B981"/>
-    </linearGradient>
-
-    <!-- Glow Filter -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
+    <!-- Mask to cut out the zipper and bars from the solid white backpack -->
+    <mask id="logoMask">
+      <!-- Everything white stays -->
+      <rect width="512" height="512" fill="white" />
+      <!-- Everything black is cut out -->
+      <line x1="166" y1="212" x2="346" y2="212" stroke="black" stroke-width="10" stroke-linecap="round" />
+      <!-- 3 rising bars (negative space) -->
+      <rect x="200" y="285" width="24" height="50" rx="6" fill="black" />
+      <rect x="244" y="250" width="24" height="85" rx="6" fill="black" />
+      <rect x="288" y="215" width="24" height="120" rx="6" fill="black" />
+    </mask>
   </defs>
 
-  <!-- Background Card -->
-  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
-  
-  <!-- Subtle background grid/pattern for high-tech premium feel -->
-  <circle cx="256" cy="256" r="220" fill="none" stroke="white" stroke-opacity="0.03" stroke-width="2"/>
-  <circle cx="256" cy="256" r="180" fill="none" stroke="white" stroke-opacity="0.02" stroke-width="1.5"/>
+  <!-- Solid Background Card -->
+  <rect width="512" height="512" rx="128" fill="#4F46E5"/>
 
-  <!-- Logo Emblem: Delivery Backpack + Statistics -->
-  <g transform="translate(0, 0)">
+  <!-- Logo Emblem: Delivery Backpack with masked cutouts -->
+  <g mask="url(#logoMask)">
     <!-- Handle -->
-    <path d="M 206 180 C 206 135, 306 135, 306 180" fill="none" stroke="white" stroke-width="16" stroke-linecap="round"/>
+    <path d="M 216 185 C 216 135, 296 135, 296 185" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/>
 
-    {/* Main Box */}
-    <rect x="156" y="180" width="200" height="200" rx="36" fill="none" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Main Box -->
+    <rect x="166" y="185" width="180" height="180" rx="30" fill="white"/>
 
     <!-- Left Pocket -->
-    <rect x="136" y="225" width="20" height="110" rx="8" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="146" y="225" width="20" height="100" rx="6" fill="white"/>
 
     <!-- Right Pocket -->
-    <rect x="356" y="225" width="20" height="110" rx="8" fill="none" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-
-    <!-- Stats Bars -->
-    <rect x="186" y="296" width="28" height="60" rx="8" fill="url(#accentGrad)" filter="url(#glow)"/>
-    <rect x="242" y="256" width="28" height="100" rx="8" fill="url(#accentGrad)" filter="url(#glow)"/>
-    <rect x="298" y="216" width="28" height="140" rx="8" fill="url(#accentGrad)" filter="url(#glow)"/>
-
-    <!-- Line Chart (Trend Line) -->
-    <path d="M 200 281 L 256 241 L 312 201 L 348 161" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
-
-    <!-- Vertices -->
-    <circle cx="200" cy="281" r="9" fill="white" filter="url(#glow)"/>
-    <circle cx="256" cy="241" r="9" fill="white" filter="url(#glow)"/>
-    <circle cx="312" cy="201" r="9" fill="white" filter="url(#glow)"/>
-    <circle cx="348" cy="161" r="9" fill="white" filter="url(#glow)"/>
+    <rect x="346" y="225" width="20" height="100" rx="6" fill="white"/>
   </g>
 </svg>
