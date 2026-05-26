@@ -10,7 +10,7 @@ import {
   Timestamp,
   orderBy,
 } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import { db } from "../lib/firestore";
 import { useAuth } from "./useAuth";
 import type { Ride } from "../types";
 

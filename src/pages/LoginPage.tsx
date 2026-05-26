@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { Bike, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -49,12 +49,6 @@ const LoginPage: React.FC = () => {
 
       <div className="w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
         <div className="flex flex-col items-center mb-6 text-center">
-          <div className="relative flex items-center justify-center mb-4">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-chart-2 rounded-full blur-md opacity-40 animate-pulse" />
-            <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-primary/80 text-primary-foreground shadow-lg border border-primary/20">
-              <Bike size={28} className="animate-pulse" />
-            </div>
-          </div>
           <h1 className="text-4xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
             MyDeli
           </h1>

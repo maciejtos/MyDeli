@@ -19,8 +19,11 @@ export default defineConfig({
             if (id.includes('recharts')) {
               return 'recharts-lib';
             }
+            if (id.includes('firestore')) {
+              return 'firebase-firestore';
+            }
             if (id.includes('firebase')) {
-              return 'firebase-sdk';
+              return 'firebase-core';
             }
             return 'vendor';
           }
