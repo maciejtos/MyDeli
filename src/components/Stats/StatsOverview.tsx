@@ -115,7 +115,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
       <StatCard
         title="Zarobki"
         value={`${current.totalEarnings.toFixed(2)} ${currency}`}
-        icon={<DollarSign size={18} />}
+        icon={<DollarSign size={22} />}
         iconBg="bg-emerald-500/12"
         iconText="text-emerald-600 dark:text-emerald-400"
         accentBar="bg-emerald-500"
@@ -124,7 +124,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
       <StatCard
         title="Dystans"
         value={`${current.totalKm.toFixed(1)} km`}
-        icon={<MapPin size={18} />}
+        icon={<MapPin size={22} />}
         iconBg="bg-blue-500/12"
         iconText="text-blue-600 dark:text-blue-400"
         accentBar="bg-blue-500"
@@ -133,7 +133,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
       <StatCard
         title="Czas pracy"
         value={formatWorkTime(current.totalMinutes)}
-        icon={<Clock size={18} />}
+        icon={<Clock size={22} />}
         iconBg="bg-violet-500/12"
         iconText="text-violet-600 dark:text-violet-400"
         accentBar="bg-violet-500"
@@ -142,7 +142,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
       <StatCard
         title="Dni pracy"
         value={current.workDays.toString()}
-        icon={<Calendar size={18} />}
+        icon={<Calendar size={22} />}
         iconBg="bg-orange-500/12"
         iconText="text-orange-600 dark:text-orange-400"
         accentBar="bg-orange-500"
@@ -153,7 +153,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
       <StatCard
         title="Stawka/h"
         value={`${current.avgHourlyRate.toFixed(2)} ${currency}`}
-        icon={<TrendingUp size={18} />}
+        icon={<TrendingUp size={22} />}
         iconBg="bg-teal-500/12"
         iconText="text-teal-600 dark:text-teal-400"
         accentBar="bg-teal-500"
@@ -162,7 +162,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
       <StatCard
         title="Śr. dniówka"
         value={`${current.avgDailyEarnings.toFixed(2)} ${currency}`}
-        icon={<Bike size={18} />}
+        icon={<Bike size={22} />}
         iconBg="bg-pink-500/12"
         iconText="text-pink-600 dark:text-pink-400"
         accentBar="bg-pink-500"
@@ -175,7 +175,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
           title="🏆 Rekord dnia"
           value={`${current.bestDay.earnings.toFixed(2)} ${currency}`}
           subtitle={formatDate(current.bestDay.date)}
-          icon={<Award size={22} />}
+          icon={<Award size={26} />}
           iconBg="bg-amber-500/15"
           iconText="text-amber-600 dark:text-amber-400"
           accentBar="bg-gradient-to-r from-amber-400 to-amber-600"
@@ -186,7 +186,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ current, previous }) => {
           title="Rekord dnia"
           value={`0.00 ${currency}`}
           subtitle="Brak danych"
-          icon={<Award size={22} />}
+          icon={<Award size={26} />}
           iconBg="bg-amber-500/15"
           iconText="text-amber-600 dark:text-amber-400"
           accentBar="bg-amber-500/40"

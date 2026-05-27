@@ -7,6 +7,7 @@ import AppLayout from "./components/Layout/AppLayout";
 // Lazy-loaded pages for high-performance bundle sizes
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const CalendarPage = lazy(() => import("./pages/CalendarPage"));
+const SchedulePage = lazy(() => import("./pages/SchedulePage"));
 const StatsPage = lazy(() => import("./pages/StatsPage"));
 const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
@@ -79,6 +80,7 @@ const App: React.FC = () => {
               }
             >
               <Route path="/" element={<CalendarPage />} />
+              <Route path="/schedule" element={<SchedulePage />} />
               <Route path="/stats" element={<StatsPage />} />
               <Route path="/settings" element={<SettingsPage />} />
             </Route>

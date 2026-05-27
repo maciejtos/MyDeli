@@ -21,7 +21,7 @@ const StatsPage: React.FC = () => {
 
   return (
     <div className="animate-in fade-in duration-300 pb-8">
-      <MonthNavigator />
+      <MonthNavigator title="Wyniki" />
 
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="grid w-full max-w-sm mx-auto grid-cols-2 p-1 bg-card border border-border backdrop-blur-md rounded-full shadow-lg mb-5 h-11 shrink-0">

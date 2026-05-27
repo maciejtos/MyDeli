@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { CalendarDays, BarChart2, Settings, Plus } from "lucide-react";
+import { CalendarDays, BarChart2, Settings, Plus, CalendarClock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useAppStore } from "../../store/appStore";
 
 const NAV_ITEMS = [
   { to: "/", icon: CalendarDays, label: "Dziennik" },
+  { to: "/schedule", icon: CalendarClock, label: "Grafik" },
   { to: "/stats", icon: BarChart2, label: "Wyniki" },
   { to: "/settings", icon: Settings, label: "Ustawienia" },
 ];

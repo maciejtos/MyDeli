@@ -38,3 +38,13 @@ export interface DayData {
   totalKm: number;
   totalMinutes: number;
 }
+
+export interface Shift {
+  id: string;
+  date: string; // YYYY-MM-DD
+  startTime: string; // HH:MM
+  endTime: string; // HH:MM
+  targetKm?: number;
+  targetEarnings?: number;
+  targetHourlyRate?: number;
+}

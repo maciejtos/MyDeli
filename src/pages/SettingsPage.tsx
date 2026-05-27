@@ -394,7 +394,7 @@ const SettingsPage: React.FC = () => {
       </div>
 
       {/* Logout button centered at the very bottom */}
-      <div className="mt-8 pt-4 flex justify-center pb-4">
+      <div className="mt-8 pt-4 flex flex-col items-center justify-center pb-4 gap-4">
         <button
           type="button"
           onClick={logout}
@@ -403,6 +403,10 @@ const SettingsPage: React.FC = () => {
           <LogOut size={15} />
           <span>Wyloguj się</span>
         </button>
+        <div className="text-center space-y-1 select-none">
+          <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest">Aktualizacja: 1.1</p>
+          <p className="text-[11px] font-semibold text-muted-foreground/50">Stworzone przez: <span className="font-extrabold text-muted-foreground/75">Maciej Toś</span></p>
+        </div>
       </div>
     </div>
   );

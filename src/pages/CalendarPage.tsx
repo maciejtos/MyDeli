@@ -92,7 +92,7 @@ const CalendarPage: React.FC = () => {
 
   return (
     <div className="animate-in fade-in duration-300 pb-8 relative">
-      <MonthNavigator />
+      <MonthNavigator title="Dziennik" />
 
       <CalendarGrid rides={monthRides} onDayClick={handleDayClick} />
 

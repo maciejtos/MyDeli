@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, NavLink, useLocation } from "react-router-dom";
 import BottomNav from "./BottomNav";
-import { CalendarDays, BarChart2, Settings, Plus } from "lucide-react";
+import { CalendarDays, BarChart2, Settings, Plus, CalendarClock } from "lucide-react";
 import { Logo } from "../Logo";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { to: "/", icon: CalendarDays, label: "Dziennik" },
+  { to: "/schedule", icon: CalendarClock, label: "Grafik" },
   { to: "/stats", icon: BarChart2, label: "Wyniki" },
   { to: "/settings", icon: Settings, label: "Ustawienia" },
 ];
@@ -75,9 +76,6 @@ const AppLayout: React.FC = () => {
           </Button>
         </nav>
         
-        <div className="pt-6 border-t border-border/40 pl-2">
-          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Aktualizacja: 1.0</p>
-        </div>
       </aside>
 
       {/* Main Content Area */}
