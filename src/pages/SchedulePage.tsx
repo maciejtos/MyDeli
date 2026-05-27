@@ -52,7 +52,7 @@ const SchedulePage: React.FC = () => {
     <div className="animate-in fade-in duration-300 pb-8 relative">
       <MonthNavigator title="Grafik" />
 
-      <Card className="border-border shadow-md sm:shadow-xl overflow-hidden bg-card backdrop-blur-md rounded-2xl sm:rounded-3xl h-[calc(100dvh-11.5rem)] md:h-[calc(100dvh-8.5rem)] min-h-[460px] w-full mt-4">
+      <Card className="border-border shadow-md sm:shadow-xl overflow-hidden bg-card backdrop-blur-md rounded-2xl sm:rounded-3xl h-[calc(100dvh-11.5rem)] md:h-[calc(100dvh-8.5rem)] min-h-[460px] w-full">
         <CardContent className="p-1 sm:p-4 h-full flex flex-col">
           <div className="grid grid-cols-7 gap-1 sm:gap-1.5 mb-2 shrink-0">
             {DAY_HEADERS.map((d, i) => (
