@@ -42,8 +42,11 @@ const SchedulePage: React.FC = () => {
     for (let d = 1; d <= daysInMonth; d++) {
       const dateObj = new Date(currentYear, currentMonth, d);
       const dateStr = toDateString(dateObj);
+      const dayOfWeek = dateObj.getDay(); // 0=Sunday, 6=Saturday
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+      const isSunday = dayOfWeek === 0;
       const dayShifts = shifts.filter((s) => s.date === dateStr);
-      days.push({ day: d, dateStr, dayShifts });
+      days.push({ day: d, dateStr, dayShifts, isWeekend, isSunday });
     }
     return days;
   }, [currentYear, currentMonth, shifts]);
@@ -79,15 +82,27 @@ const SchedulePage: React.FC = () => {
                   onClick={() => handleDayClick(item.dateStr)}
                   className={cn(
                     "relative flex flex-col items-center justify-start h-full w-full rounded-lg sm:rounded-xl p-0.5 sm:p-1 md:p-1.5 transition-colors duration-150 border",
-                    isToday ? "border-primary bg-primary/8 ring-2 ring-primary/25 shadow-md shadow-primary/10" : "border-border bg-card hover:bg-accent/50",
-                    hasShifts && !isToday && "border-primary/35 bg-primary/4 hover:bg-primary/8"
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
+                    isToday 
+                      ? "border-primary bg-primary/8 ring-2 ring-primary/25 shadow-md shadow-primary/10" 
+                      : item.isWeekend && !hasShifts
+                        ? "border-border bg-muted/30 hover:bg-muted/50 hover:border-primary/30"
+                        : !hasShifts
+                          ? "border-border bg-card hover:bg-accent/50 hover:border-primary/30"
+                          : "border-primary/35 bg-primary/4 hover:bg-primary/8"
                   )}
                 >
                   <span
                     className={cn(
-                      "relative z-10 text-[10px] sm:text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full mt-0.5",
-                      isToday ? "bg-primary text-primary-foreground font-extrabold shadow-sm shadow-primary/30" : "text-foreground/90",
-                      hasShifts && !isToday && "text-foreground font-extrabold"
+                      "relative z-10 text-[10px] sm:text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full mt-0.5 transition-colors duration-200",
+                      isToday 
+                        ? "bg-primary text-primary-foreground font-extrabold shadow-sm shadow-primary/30"
+                        : item.isSunday
+                          ? "text-red-500 dark:text-red-400 font-bold"
+                          : item.isWeekend
+                            ? "text-primary/70 font-bold"
+                            : "text-foreground/90",
+                      hasShifts && !isToday && !item.isSunday && "text-foreground font-extrabold"
                     )}
                   >
                     {item.day}
